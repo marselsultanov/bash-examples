@@ -14,12 +14,4 @@ Receives the number of the month as input and outputs its name.
 Has one argument and displays its value. It also handles the error if there is no argument, and displays an appropriate message.
 
 # bash6.sh
-Create groups “test_group”, “my_group”
-Create user “super_user”
-Add “super_user” to sudoers file, grant ALL permissions with ability to run commands  without password prompt.
-Create N users in test_group as primary group, my_group as secondary group and  comment “test users”. Usernames are “test[1-N]”. Password is “password" for all. N=2
-Create temp file with size 100k in super_user’s home dir, copy  this file to test users home  dir
-Change ownership on copied file from superuser to $username:$secondary_group
-Set permissions -wxr--r-x on copied file
-Delete previously created users and groups
-Remove super_user from sudoers file using SED or AWK
+Create groups “test_group”, “my_group”. Create user “super_user”. Add “super_user” to sudoers file, grant ALL permissions with ability to run commands without password prompt. Create N users in test_group as primary group, my_group as secondary group and comment “test users”. Usernames are “test[1-N]”. Password is “password" for all. N=5. Create temp file with size 100k in super_user’s home dir, copy this file to test users home dir. Change ownership on copied file from superuser to $username:$secondary_group. Set permissions -wxr--r-x on copied file. Delete previously created users and groups. Remove super_user from sudoers file using SED or AWK.
