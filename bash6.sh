@@ -13,3 +13,4 @@ secondary_group=$(id -Gn $username | awk '{print $2}');
 chown $username:$secondary_group /home/$username/temp;
 chmod 345 /home/$username/temp;
 done
+rm temp
