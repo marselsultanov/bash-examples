@@ -1,14 +1,14 @@
 # bash1.sh
-Делает ls для несуществующего файла и выводит сообщение с exitcode. Затем создает этот файл и выводит новый exitcode. В каждой под-задаче отправляет вывод ls в /dev/null.
+Makes ls for a non-existent file and prints a message with exitcode. It then creates this file and prints out a new exitcode. In each sub-task, send the output of ls to /dev/null.
 
 # bash2.sh
-Просит пользователя ввести имя папки, которую затем создает. Затем меняет рабочую директорию на новую папку и выводит сообщение о текущей папке.Далее создает новый файл и записывает в него рандомную информацию. Показывает пользователю содержимое файла.
+Asks the user to enter the name of the folder it then creates. Then it changes the working directory to a new folder and displays a message about the current folder. Then it creates a new file and writes random information to it. Shows the contents of the file to the user.
 
 # bash3.sh
-Спрашивает пользователя число (1, 2 или 3) и вызывает функцию с соответствующим числом в имени. Функция выводит сообщение, содержащее её номер.
+Asks the user for a number (1, 2, or 3) and calls the function with the corresponding number in the name. The function displays a message containing its number.
 
 # bash4.sh
-Получает на вход номер месяца и выводит его имя.
+Receives the number of the month as input and outputs its name.
 
 # bash5.sh
-Имеет один аргумент. И выводит его значение. Также обрабатывает ошибку если аргумента нет, и выводит соответствующее сообщение.
+Has one argument and displays its value. It also handles the error if there is no argument, and displays an appropriate message.
