@@ -14,3 +14,6 @@ chown $username:$secondary_group /home/$username/temp;
 chmod 345 /home/$username/temp;
 done
 rm temp
+for username in test{1..2} super_user; do userdel -r $username; done
+for groupname in test_group my_group; do groupdel $groupname; done
+sed -i '/^super_user/d' /etc/sudoers
