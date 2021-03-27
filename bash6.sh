@@ -9,8 +9,7 @@ for username in test{1..5}; do
 useradd -m $username -g test_group -G my_group -c "test users";
 echo "password" | passwd $username --stdin > /dev/null;
 cp temp /home/$username;
-secondary_group=$(id -Gn $username | awk '{print $2}');
-chown $username:$secondary_group /home/$username/temp;
+chown $username:$(id -Gn $username | awk '{print $2}') /home/$username/temp;
 chmod 345 /home/$username/temp;
 done
 rm temp
