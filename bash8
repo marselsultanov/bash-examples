@@ -1,0 +1,54 @@
+#!/bin/bash
+start (){
+	if [ -f "/apps/mongo/bin/mongod" ] && [ -d "/apps/mongodb" ] && [ -d "/logs/mongo" ];
+        then
+            	if [ $(stat -c %a /apps/mongo/bin/mongod) = 755 ] && [ $(stat -c %U:%G /apps/mongo/bin/mongod) = mongo:staff ];
+                then
+                    	if [ $(stat -c %a /apps/mongodb) = 750 ] && [ $(stat -c %a /logs/mongo) = 740 ] && \
+                        [ $(stat -c %U:%G /apps/mongodb) = mongo:staff ] && [ $(stat -c %U:%G /logs/mongo) = mongo:staff ];
+                        then
+                            	if [ -z $(ps aux | pgrep mongod) ];
+                                then
+                                sudo -u mongo /apps/mongo/bin/mongod --dbpath /apps/mongodb --logpath /logs/mongo/mongod.log --fork > /dev/null;
+                                echo -n $(ps aux | grep mongo[d] | awk '{print $2}');
+                                cat /logs/mongo/mongod.log | grep waiting | awk -Fthread1] '{print $2}';
+                                else
+                                echo "Process mongod already started";
+                                eval status;
+                                fi
+                        else
+                        echo "Folders has wrong permission and ownership";
+                        fi
+                else
+                echo "Bin mongod has wrong permission and ownership";
+                fi
+        else
+	echo "Folder nonexist";
+        fi
+}
+
+stop (){
+        if [ -z $(ps aux | pgrep mongod) ];
+        then echo "Process mongod not running, nothing to stop"
+        else
+	ps aux | pgrep mongod | xargs kill;
+        echo "Process mongod was stopped";
+        fi
+}
+
+status (){
+	if [ -z $(ps aux | pgrep mongod) ];
+        then echo "Process mongod not running"
+        else
+	echo "Process mongod is running";
+        echo -n "PID: ";
+        ps aux | grep mongo[d] | awk '{print $2}';
+        echo -n "Memory consumed: ";
+        ps aux | grep mongo[d] | awk '{print $5}';
+        echo -n "Port: ";
+        netstat -tupln | grep mongod | awk '{print $4}' | awk -F: '{print $2}';
+        echo -n "Network stats: ";
+	netstat -tupln | grep mongod | awk '{print $2" "$3}';
+        fi
+}
+$*
