@@ -18,3 +18,6 @@ Create groups “test_group”, “my_group”. Create user “super_user”. Ad
 
 # bash7.sh
 Replaces killall utility.
+
+# bash7.sh
+Init file for MongoDB.
