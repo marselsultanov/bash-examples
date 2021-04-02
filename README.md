@@ -20,4 +20,4 @@ Create groups “test_group”, “my_group”. Create user “super_user”. Ad
 Killall utility.
 
 # bash8
-Init file for MongoDB.
+Init for MongoDB.
