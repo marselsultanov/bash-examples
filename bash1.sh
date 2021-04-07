@@ -1,7 +1,7 @@
 #!/bin/bash
-ls nonexistent 2> /dev/null
+ls nonexistent > /dev/null 2>&1
 echo $?
 touch nonexistent
-ls nonexistent > /dev/null
+ls nonexistent > /dev/null 2>&1
 echo $?
 rm nonexistent
